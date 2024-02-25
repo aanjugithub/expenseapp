@@ -8,6 +8,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { TransactiondetailComponent } from './transactiondetail/transactiondetail.component';
 import { TransactioncreateComponent } from './transactioncreate/transactioncreate.component';
 import { HomeComponent } from './home/home.component'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HomeComponent } from './home/home.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,15 +1,15 @@
 <h5> Create Transaction </h5>
 <div class="container">
 
-   <form action="" class="border p-4 border-3 shadow rounded">
+   <form [formGroup]="transactionForm" (ngSubmit)="addTransaction()" class="border p-4 border-3 shadow rounded">
         <div class="mb-3">
             <label for="">Enter transaction details</label>
-            <input type="text" placeholder="enter title" class="form-control">
+            <input type="text" placeholder="enter title" class="form-control" formControlName=title>
         </div>
 
         <div class="mb-3">
             <label for="">Select transaction type</label>
-            <select name="" id="" class="form-control form-select">
+            <select  name="" id="" class="form-control form-select" formControlName="type">
                 <option value="expenses">Expenses</option>
                 <option value="income">Income</option>
             </select>
@@ -17,7 +17,7 @@
 
         <div class="mb-3">
             <label for="">Select Category</label>
-            <select name="" id="" class="form-control form-select">
+            <select name="" id="" class="form-control form-select" formControlName="category">
                 <option value="{{cat}}" *ngFor="let cat of categories">{{cat}}</option>
  
             </select>
@@ -25,11 +25,11 @@
 
         <div>
             <label for="">Enter amount</label>
-            <input type="text" placeholder="enter amount" class="form-control">
+            <input type="text" placeholder="enter amount" class="form-control" formControlName="amount">
         </div>
         <div>
             <label for="">Enter user</label>
-            <input type="text" placeholder="enter user" class="form-control">
+            <input type="text" placeholder="enter user" class="form-control" formControlName="user">
 
         </div>
         <div class="mt-3">
