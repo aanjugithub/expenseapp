@@ -1,0 +1,20 @@
+<h5>Transactions List</h5>
+
+<div class="conatiner  border p-4 border-3 shadow rounded">
+    <div *ngFor="let t of transactions" class="border rounded py-3 d-flex gap-4">
+            <div>
+                {{t.title}}   
+            </div>
+            <div>
+                {{t.category}}
+            </div>
+            <div>
+                {{t.amount}}
+            </div>
+            <div class="d-flex gap-3">
+                <a href="" [routerLink]="['transactions',t.id]">view</a>
+                <a href="">Edit</a>
+                <a href="">Delete</a>
+            </div>
+    </div>
+</div>

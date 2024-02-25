@@ -1,0 +1,39 @@
+<h5> Create Transaction </h5>
+<div class="container">
+
+   <form action="" class="border p-4 border-3 shadow rounded">
+        <div class="mb-3">
+            <label for="">Enter transaction details</label>
+            <input type="text" placeholder="enter title" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="">Select transaction type</label>
+            <select name="" id="" class="form-control form-select">
+                <option value="expenses">Expenses</option>
+                <option value="income">Income</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="">Select Category</label>
+            <select name="" id="" class="form-control form-select">
+                <option value="{{cat}}" *ngFor="let cat of categories">{{cat}}</option>
+ 
+            </select>
+        </div>
+
+        <div>
+            <label for="">Enter amount</label>
+            <input type="text" placeholder="enter amount" class="form-control">
+        </div>
+        <div>
+            <label for="">Enter user</label>
+            <input type="text" placeholder="enter user" class="form-control">
+
+        </div>
+        <div class="mt-3">
+            <button type="submit">Add</button>
+        </div>
+   </form>
+</div>
