@@ -21,7 +21,7 @@ export class TransactioncreateComponent {
   })
 
   addTransaction(){
-    let data=console.log(this.transactionForm.value);
+    let data=this.transactionForm.value;
     this.services.addTransaction(data).subscribe(data=>console.log(data));
     
 

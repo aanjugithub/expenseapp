@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExpenseService } from '../services/expense.service';
 
@@ -8,17 +8,19 @@ import { ExpenseService } from '../services/expense.service';
   templateUrl: './transactiondetail.component.html',
   styleUrls: ['./transactiondetail.component.css']
 })
-export class TransactiondetailComponent {
+export class TransactiondetailComponent implements OnInit {
   id:any
   transaction:any
   constructor (private route:ActivatedRoute, private service:ExpenseService){
 
     this.id= this.route.snapshot.params["id"]
-    this.service.retrieveTransactiondetail(this.id).subscribe(data=>this.transaction=data)
     
 
   }
 
- 
+ ngOnInit(): void {
+  this.service.retrieveTransactiondetail(this.id).subscribe(data=>this.transaction=data)
+
+ }
 
 }
