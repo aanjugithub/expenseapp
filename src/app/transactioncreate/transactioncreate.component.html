@@ -1,4 +1,4 @@
-<h5> Create Transaction </h5>
+<h5> {{title}} </h5>
 <div class="container">
 
    <form [formGroup]="transactionForm" (ngSubmit)="addTransaction()" class="border p-4 border-3 shadow rounded">
@@ -7,22 +7,24 @@
             <input type="text" placeholder="enter title" class="form-control" formControlName=title>
         </div>
 
-        <div class="mb-3">
-            <label for="">Select transaction type</label>
-            <select  name="" id="" class="form-control form-select" formControlName="type">
-                <option value="expenses">Expenses</option>
-                <option value="income">Income</option>
-            </select>
-        </div>
+        <div class="mb-3 d-flex gap-2 ">
+            <div class="w-100">
+                <label for="">Select transaction type</label>
+                <select  name="" id="" class="form-control form-select" formControlName="type">
+                    <option value="expenses">Expenses</option>
+                    <option value="income">Income</option>
+                </select>
+            </div>
 
-        <div class="mb-3">
-            <label for="">Select Category</label>
-            <select name="" id="" class="form-control form-select" formControlName="category">
-                <option value="{{cat}}" *ngFor="let cat of categories">{{cat}}</option>
- 
-            </select>
-        </div>
+            <div class="w-100" >
+                <label for="">Select Category</label>
+                <select name="" id="" class="form-control form-select" formControlName="category">
+                    <option value="{{cat}}" *ngFor="let cat of categories">{{cat}}</option>
 
+                </select>
+            </div>
+
+   </div>
         <div>
             <label for="">Enter amount</label>
             <input type="text" placeholder="enter amount" class="form-control" formControlName="amount">
@@ -33,7 +35,8 @@
 
         </div>
         <div class="mt-3">
-            <button type="submit">Add</button>
+            <button type="submit" [hidden]="isEdit">Add</button>
+            <button type="submit" [hidden]="!isEdit">Update</button>
         </div>
    </form>
 </div>

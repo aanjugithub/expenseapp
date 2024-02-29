@@ -9,6 +9,9 @@ export class ExpenseService {
   baseUrl="http://127.0.0.1:8000/api/v1/transactions/"
 
   refreshRequired =new Subject()
+
+  emitTransactionId = new Subject()
+
   constructor(private http:HttpClient) { }
 
   getTransactions(){
@@ -27,11 +30,18 @@ export class ExpenseService {
 
 
   updateTransaction(id:Number,data:any){
-      return this.http.put(`${this.baseUrl}${id}/`,data)
+      return this.http.put(`${this.baseUrl}${id}/`,data).pipe(tap(data=>this.refreshRequired.next(true)))
+      //.pipe is used to automatic update on list side when we edit 
   }
 
 
   deleteTransaction(id:Number){
     return this.http.delete(`${this.baseUrl}${id}/`)
+  }
+
+
+// for passing transaction id to subscriber
+  dispatchTransactionId(id:any){
+    this.emitTransactionId.next(id)
   }
 }

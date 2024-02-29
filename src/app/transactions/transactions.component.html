@@ -1,7 +1,7 @@
 <h5>Transactions List</h5>
 
 <div class="conatiner  border p-4 border-3 shadow rounded">
-    <div *ngFor="let t of transactions" class="border rounded py-3 d-flex gap-4">
+    <div *ngFor="let t of transactions" class="border rounded-pill px-3 d-flex gap-3 mt-2">
             <div>
                 {{t.title}}   
             </div>
@@ -11,10 +11,10 @@
             <div>
                 {{t.amount}}
             </div>
-            <div class="d-flex gap-3">
-                <a href="" [routerLink]="['transactions',t.id]">view</a>
-                <a href="">Edit</a>
-                <a href="">Delete</a>
+            <div class="d-flex ms-auto">
+                <a href="" [routerLink]="['transactions',t.id]" class="mt-1"><i class="fa-regular fa-eye"></i></a>
+                <button (click)="editTransaction(t.id)" class="btn btn-link"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn btn-link" (click)="destroyTransactions(t.id)"><i class="fa-solid fa-trash"></i></button>
             </div>
     </div>
 </div>
